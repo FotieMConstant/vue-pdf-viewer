@@ -1,19 +1,23 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <VuePDFViewer :path="`${path}`" :fileName="`${name}`" />
   </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import VuePDFViewer from "@/components/VuePDFViewer";
 
 export default {
-  name: 'App',
+  name: "app",
   components: {
-    HelloWorld
-  }
-}
+    VuePDFViewer,
+  },
+  data() {
+    return {
+      name: "https://pdftron.s3.amazonaws.com/downloads/pl/demo.pdf", //change which pdf file loads
+      path: "lib/pdfjs-2.7.570-dist/web/viewer.html", //path of the PDF.js viewer.html
+    };
+  },
+};
 </script>
 
 <style>
